@@ -1,17 +1,24 @@
 <!docktype html>
 <html lang = "ja">
   <head>
-
+    <meta chaset = "UTF-8">
+    <title>WebCampBackendNew</title>
   </head>
 
   <body>
-    <p id = "notice"></p>
+    <p id = "notice">
+      <div class="flash-notifications">
+        <% flash.each do |key, value| %>
+          <%= content_tag(:div, value, class: key) %>
+        <% end %>
+      </div>
+    </p>
     <h1>Books</h1>
 
 <!--一覧画面---->
+
      <table>
        <thead>
-         <colgrop span = "3"></colgrop>
           <tr>
            <th>Title</th>
            <th>Body</th>
@@ -19,8 +26,8 @@
         </tr>
       </thead>
 
-    <% @books.each do |book| %>
       <tbody>
+        <% @books.each do |book| %>
         <tr>
           <td><span><%= book.title %></span></td>
 
@@ -29,14 +36,15 @@
           <td><span><%= link_to 'Show', book_path(book.id) %></span></td>
           <td><span><%= link_to 'Edit', edit_book_path(book.id) %></span></td>
           <td><span><%= link_to 'Destroy', book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></span></td>
-        <% end %>
+         <% end %>
         </tr>
       </tbody>
+
     </table>
 
 
 <!---投稿画面---->
-    <h1>New Books</h1>
+    <h2>New Book</h2>
 
       <% if @book.errors.any? %>
         <%= @book.errors.count %> errors prohibited this book from being saved:
@@ -50,13 +58,19 @@
 
     <%= form_with model:@book, url: '/books', method: :post do |f| %>
 
-    <h4>title</h4>
+    <div class = "field">
+      <label for ="book_title">Title</label>
      <%= f.text_field :title %>
+     </div>
 
-    <h4>body</h4>
+     <div class = "field">
+     <label for = "book_body">Body</label>
      <%= f.text_area :body %>
+     </div>
 
+     <div class = "actions">
      <%= f.submit 'Create Book' %>
+     </div>
 
     <% end %>
 

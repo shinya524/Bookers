@@ -1,4 +1,36 @@
-/*
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+  body{
+    background-color: #fff;
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    margin: 33px;
+  }
+
+    h1{
+    display: block;
+  }
+
+ p{
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 33px;
+ }
+
+ div.field,div.actions{
+   margin-bottom: 10px;
+ }
+
+ label{
+   display: block;
+ }
+ /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
