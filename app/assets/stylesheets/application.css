@@ -12,8 +12,12 @@
     margin: 33px;
   }
 
-    h1{
+  h1{
     display: block;
+  }
+
+  h2{
+    margin-top: 10px;
   }
 
  p{
@@ -23,7 +27,12 @@
   margin: 33px;
  }
 
+ .book-list{
+   margin: 10px;
+ }
+
  div.field,div.actions{
+   margin-top: 10px;
    margin-bottom: 10px;
  }
 
